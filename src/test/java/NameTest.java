@@ -1,5 +1,4 @@
 import java.util.Map;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -8,8 +7,8 @@ import org.junit.Test;
 
 import com.qa.app.Account;
 import com.qa.app.Service;
-
 import junit.framework.Assert;
+import java.util.Iterator;
 
 public class NameTest {
 
@@ -24,11 +23,11 @@ public class NameTest {
 	
 	
 	@Before
-	public static void setUp() {
+	public void setUp() {
 	}
 	
 	@Test
-	public void cycleThrough(String firstName) {
+	public void cycleThrough() {
 		Service service = new Service();
 		Account one = new Account();
 		one.setAccountNumber(1);
@@ -44,15 +43,27 @@ public class NameTest {
 		three.setAccountNumber(3);
 		three.setFirstName("Joe");
 		three.setLastName("Hill");
-		for (Object value : service.hashMap.values());
-		if (Account.firstName = "Joe"){
+		
+		service.addAccount(one);
+		service.addAccount(two);
+		service.addAccount(three);
+		
+		Iterator iterator = service.hashMap.entrySet().iterator();
+		while (iterator.hasNext()) {
+			Map.Entry pair = (Map.Entry)iterator.next();
+			Account acc = (Account) pair.getValue();		
+			if (acc.getFirstName() == "Joe"){
 				count++;
+			}
+			iterator.remove();
 		}
 		Assert.assertEquals(2, count);
+		System.out.println(count);
 	}
 	
-	@After
 	
+	@After
+	public void tearDown() {}
 	
 	@AfterClass
 	public static void setUpAfterClass() {

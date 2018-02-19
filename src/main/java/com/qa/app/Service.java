@@ -4,7 +4,7 @@ package com.qa.app;
 import java.util.HashMap;
 
 public class Service {
-	private HashMap<Integer, Account> hashMap = new HashMap<Integer, Account>();
+	public HashMap<Integer, Account> hashMap = new HashMap<Integer, Account>();
 	private int counter = 0;
 	
 	
