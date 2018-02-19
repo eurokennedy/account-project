@@ -1,13 +1,21 @@
 package com.qa.app;
-
+import java.util.Map;
+import org.json.JSONObject;
 public class App {
 
 	public static void main (String[] args) {
+		Account one = new Account();
+		one.setAccountNumber(1);
+		one.setFirstName("John");
+		one.setLastName("Doe");
+		
 		Service service = new Service();
-		Account one = new Account("John", "Doe", 1);
 		service.addAccount(one);
-		Account two = service.retrieveAccount(1);
-		System.out.println(two.retrieveAccountNumber()); 
+		
+		
+		Map map = service.gethashMap();
+		JSONObject json = new JSONObject(map);
+		System.out.println(json);
 	}
 }
 

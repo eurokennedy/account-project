@@ -17,6 +17,8 @@ public class Service {
 		return hashMap.get(accountNumber);	
 	}
 	
-	
-	
+	public HashMap<Integer,Account> gethashMap(){
+		//System.out.println(hashMap.get(1).retrieveFirstName());
+		return hashMap;
+	}
 }
