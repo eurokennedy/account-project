@@ -9,6 +9,16 @@ public class App {
 		one.setFirstName("John");
 		one.setLastName("Doe");
 		
+		Account two = new Account();
+		two.setAccountNumber(1);
+		two.setFirstName("Joe");
+		two.setLastName("Doe");
+		
+		Account three = new Account();
+		three.setAccountNumber(1);
+		three.setFirstName("Joe");
+		three.setLastName("Hill");
+		
 		Service service = new Service();
 		service.addAccount(one);
 		
